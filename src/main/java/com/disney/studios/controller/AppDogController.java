@@ -22,8 +22,11 @@ public class AppDogController {
     @Autowired
     private DogServiceImpl dogService;
 
-
-
+    /**
+     *  GET method
+     *
+     * @return Key as breed and list of dogs.
+     */
     @RequestMapping(value = "/breeds",
             method = RequestMethod.GET,
             produces = {"application/json", "application/xml"})
@@ -34,6 +37,11 @@ public class AppDogController {
     }
 
 
+    /**
+     * GET method
+     * @param breed
+     * @return Returns a particular breed list of dogs.
+     */
     @RequestMapping(value = "/breeds/{breed}",
             method = RequestMethod.GET,  produces = {"application/json", "application/xml"})
     @ResponseStatus(HttpStatus.OK)

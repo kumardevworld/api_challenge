@@ -9,10 +9,8 @@ import java.util.List;
 
 public interface FavoriteService {
 
-	//save
 	public Favorite addFavorite(User user , Dog dog);
 	public Favorite findByUserIdDogId(User user , Dog dog);
-	 //delete
-     public String unFavorite(User user , Dog dog) throws Exception ;
-     public List<Long> getAll();
+	public String unFavorite(User user , Dog dog) throws Exception ;
+    public List<Long> getAll();
 }

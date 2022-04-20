@@ -31,7 +31,7 @@ public class FavoriteServiceImpl implements FavoriteService{
 		if(null == favorite){
 			Favorite newFavorite = favoriteRepository.save(new Favorite(user.getId(),dog.getId())); 		
 			return newFavorite;
-		}else
+		}
 		
 		return null;
 	}

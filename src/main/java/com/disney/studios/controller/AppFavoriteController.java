@@ -23,7 +23,6 @@ public class AppFavoriteController {
             method = RequestMethod.POST)
     public Favorite makeFavorite(@PathVariable("dogId") String dogId,
                                  @RequestBody User user) {
-
         Dog dog = new Dog();
         dog.setId(Long.valueOf(dogId));
         Favorite newlyFavorited = this.favoriteService.addFavorite(user, dog);

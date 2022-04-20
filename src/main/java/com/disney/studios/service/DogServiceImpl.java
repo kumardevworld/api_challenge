@@ -29,8 +29,7 @@ public class DogServiceImpl implements  DogService{
 
     @Override
     public Dog getDog(long id) {
-        // TODO
-        return null;
+        return dogRepository.findOne(id);
     }
 
     @Override
