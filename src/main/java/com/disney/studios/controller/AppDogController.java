@@ -39,7 +39,7 @@ public class AppDogController {
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     public List<Map.Entry<String,List<Dog>>> getAllDogByBreed(
-            @PathVariable("breed") @Required("breed") String breed) {
+            @PathVariable("breed") String breed) {
         return this.dogService.getAllDogsByBreed(breed);
     }
 
