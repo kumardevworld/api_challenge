@@ -20,7 +20,7 @@ public class AppFavoriteController {
     FavoriteService favoriteService;
 
     @RequestMapping(value = "/dogs/{dogId}",
-            method = RequestMethod.POST)
+            method = RequestMethod.POST, produces = {"application/json"})
     public Favorite makeFavorite(@PathVariable("dogId") String dogId,
                                  @RequestBody User user) {
         Dog dog = new Dog();

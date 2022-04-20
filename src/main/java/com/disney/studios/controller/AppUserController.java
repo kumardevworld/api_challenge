@@ -17,17 +17,8 @@ public class AppUserController {
     @Autowired
     UserService userService;
 
-
-
-    @RequestMapping(value = "/registration", method = RequestMethod.GET)
-    public String registration(Model model) {
-        model.addAttribute("userForm", new User());
-
-        return "registration";
-    }
-
     @RequestMapping(value = "/registration",
-            method = RequestMethod.POST)
+            method = RequestMethod.POST, produces = {"application/json"})
     @ResponseBody
     public User registration(@RequestBody User user) {
     	User createdUser = this.userService.save(user);

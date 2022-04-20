@@ -29,7 +29,7 @@ public class AppDogController {
      */
     @RequestMapping(value = "/breeds",
             method = RequestMethod.GET,
-            produces = {"application/json", "application/xml"})
+            produces = {"application/json"})
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     public List<Map.Entry<String, List<Dog>>> getAllDog() {
@@ -43,7 +43,7 @@ public class AppDogController {
      * @return Returns a particular breed list of dogs.
      */
     @RequestMapping(value = "/breeds/{breed}",
-            method = RequestMethod.GET,  produces = {"application/json", "application/xml"})
+            method = RequestMethod.GET,  produces = {"application/json"})
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     public List<Map.Entry<String,List<Dog>>> getAllDogByBreed(
