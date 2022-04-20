@@ -1,4 +1,10 @@
 # API Challenge
+https://github.com/kumardevworld/api_challenge.git ( forked to my local)
+
+hosted the api in 
+
+http://localhost:8080/swagger-ui.html
+
 
 ## Dependencies
 

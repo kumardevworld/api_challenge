@@ -1,5 +1,7 @@
 package com.disney.studios;
 
+import com.disney.studios.models.Dog;
+import com.disney.studios.service.DogServiceImpl;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -14,11 +16,16 @@ import java.io.InputStreamReader;
 /**
  * Loads stored objects from the file system and builds up
  * the appropriate objects to add to the data source.
- *
+ * <p>
  * Created by fredjean on 9/21/15.
  */
 @Component
 public class PetLoader implements InitializingBean {
+
+
+    @Autowired
+    private DogServiceImpl dogService;
+
     // Resources to the different files we need to load.
     @Value("classpath:data/labrador.txt")
     private Resource labradors;
@@ -52,18 +59,22 @@ public class PetLoader implements InitializingBean {
     /**
      * Reads the list of dogs in a category and (eventually) add
      * them to the data source.
-     * @param breed The breed that we are loading.
+     *
+     * @param breed  The breed that we are loading.
      * @param source The file holding the breeds.
      * @throws IOException In case things go horribly, horribly wrong.
      */
     private void loadBreed(String breed, Resource source) throws IOException {
-        try ( BufferedReader br = new BufferedReader(new InputStreamReader(source.getInputStream()))) {
+        System.out.println("***** \n " + breed);
+
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(source.getInputStream()))) {
             String line;
             while ((line = br.readLine()) != null) {
                 System.out.println(line);
-                /* TODO: Create appropriate objects and save them to
-                 *       the datasource.
-                 */
+                Dog dog = new Dog();
+                dog.setBreed(breed);
+                dog.setImageUrl(line);
+                dogService.createDog(dog);
             }
         }
     }
